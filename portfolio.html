@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-  <style>
-            body {
+<style type="text/css">
+     body {
                 background: rgb(0, 0, 0);
                 color: rgb(45, 45, 45);
                 padding: 10px;
@@ -10,11 +10,16 @@
                 font-size: 1.5em;
                 font-weight: bold;
             }
+            h1 {
+                margin: 10px;
+            }
             #all-contents {
                 max-width: 800px;
                 margin: auto;
             }
-
+            
+            
+    
             /* navigation menu */
             nav {
                 background: rgb(0, 0, 255);
@@ -28,7 +33,6 @@
                 align-items: center;
                 color: rgb(255, 255, 255);
                 flex: 1;
-                border-radius: 25px;
             }
             nav ul {
                 list-style-image: none;
@@ -41,65 +45,43 @@
                 text-decoration: none;
                 color: #fff;
             }
-
+    
             /* main container area beneath menu */
             main {
                 background: rgb(255, 255, 255);
                 display: flex;
                 border-radius: 25px;
             }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar img {
-                width: 200px;
-            }
             .content {
                 flex: 1;
                 padding: 15px;
             }
-            .interests header {
-                font-size: 1.25em;
-            }
-        </style>
+</style>
 <html>
     <head>
-        <title>Thomas's Website</title>
+        <title>Thomas's Portfolio</title>
     </head>
     
     <body>
-        <div id="all-contents"> 
-            <nav>
-                <ul>
-                    <header>Thomas's Website</header>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+        <nav>
+            <ul>
+                <header>Thomas's Website</header>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portolfio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+        
+        <br>
+        
+        <main>
+            <div class="content">
+                <h1>Portfolio</h1>
+                <ul id="portfolio">
                 </ul>
-            </nav>
-
-<br>
-
-            <main>
-                <div class="sidebar">
-                    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/PiperPA-28-236DakotaC-GGFSPhoto4.JPG/300px-PiperPA-28-236DakotaC-GGFSPhoto4.JPG"
-                </div>
-
-                <div class="content">
-                    <header>Thomas Maitre</header>
-                    
-                    <p>Student at MHS</p>
-                    
-                    <section class="interests">
-                        <header>Interests</header>
-                        <ul>
-                            <li>Theater</li>
-                            <li>Aviation</li>
-                            <li>Metal</li>
-                        </ul>
-                    </section>
-                </div>
-            </main>
-        </div>
+            </div>
+           
+        </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
     </body>
 </html>
